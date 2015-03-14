@@ -10,9 +10,9 @@
     body{overflow: hidden; font-family: 'Muli', sans-serif; font-weight: 300; color: #152523;}
     h2{font-weight: 300; text-transform: uppercase;}
     .container{height: 100%; }
-    .list-container{position: absolute; top: 0; width: 50%; height: 100%; }
-    .book-list-container{left: 0; background-color: #eee; }
-    .read-list-container{left: 50%;}
+    .list-container{position: absolute; top: 0;height: 100%; }
+    .book-list-container{left: 0; width: 40%; background-color: #eee; }
+    .read-list-container{left: 40%; width: 60%; }
     .list-container header{padding: .3em; text-align: center;}
     .book-list-container header{background-color: #50B78B;}
     .read-list-container header{background-color: #FFDA73;}
@@ -23,7 +23,7 @@
     .book{position: relative;}
     .title, hr{display: none;}
     .placeholder{width: 266px; height: auto; margin: auto; border: 2px dashed #00192C;}
-    .badge{position: absolute; top: 1em; left: 10%; display: block; height: 3em; width: 3em; line-height: 3em; text-align: center; background-color: #E13B3F; color: white; border-radius: 50%;}
+    .badge{position: absolute; top: 1em; left: 20%; display: block; height: 3em; width: 3em; line-height: 3em; text-align: center; background-color: #E13B3F; color: white; border-radius: 50%;}
   </style>
 </head>
 <body>
@@ -101,7 +101,7 @@
         console.log(i)
         $(this).html(i + 1)
       });
-      
+
     });
   });
 
