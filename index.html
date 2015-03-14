@@ -94,13 +94,14 @@
         if (ui.startparent.hasClass('book-list')){
           ui.item.append('<span class="badge"></span>');
         }
-
-        var badges = $('.badge')
-        $.each(badges, function(i){
-          console.log(i)
-          $(this).html(i + 1)
-        });
       }
+
+      var badges = $('.badge')
+      $.each(badges, function(i){
+        console.log(i)
+        $(this).html(i + 1)
+      });
+      
     });
   });
 
