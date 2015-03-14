@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Book Drop</title>
+  <link href='http://fonts.googleapis.com/css?family=Muli:300' rel='stylesheet' type='text/css'>
+  <style>
+    /*http://www.colourlovers.com/palette/3680636/4*/
+    *{box-sizing: border-box;}
+    body{overflow: hidden; font-family: 'Muli', sans-serif; font-weight: 300; color: #152523;}
+    h2{font-weight: 300; text-transform: uppercase;}
+    .container{height: 100%; }
+    .list-container{position: absolute; top: 0; width: 50%; height: 100%; }
+    .book-list-container{left: 0; background-color: #eee; }
+    .read-list-container{left: 50%;}
+    .list-container header{padding: .3em; text-align: center;}
+    .book-list-container header{background-color: #50B78B;}
+    .read-list-container header{background-color: #FFDA73;}
+    .list{position: absolute; width: 100%; height: 100%; overflow-y: auto; overflow-x: hidden;}
+    ul{list-style: none; margin: 0; padding: 1em 0; text-align: center;}
+    ul li{height: auto; margin: 1em auto;}
+    ul li img{width: 100%; max-width: 270px; }
+    .book{position: relative;}
+    .title, hr{display: none;}
+    .placeholder{width: 266px; height: auto; margin: auto; border: 2px dashed #00192C;}
+    .badge{position: absolute; top: 1em; left: 10%; display: block; height: 3em; width: 3em; line-height: 3em; text-align: center; background-color: #E13B3F; color: white; border-radius: 50%;}
+  </style>
+</head>
+<body>
+  <div class="list-container book-list-container">
+    <header>
+      <h2>Books I need to read</h2>
+    </header>
+    <ul class="list book-list">
+
+      <li class="book">
+        <img src="http://origin.syndetics.com/index.php?isbn=0385353308/LC.gif&amp;client=skopl&amp;type=hw7" class="left">
+
+      </li>
+
+      <li class="book">
+        <img src="http://origin.syndetics.com/index.php?isbn=0062276743/LC.gif&amp;client=skopl&amp;type=hw7" class="left">
+
+      </li>
+
+      <li class="book">
+        <img src="http://origin.syndetics.com/index.php?isbn=9781401248857/LC.gif&amp;client=skopl&amp;type=hw7" class="left">
+
+      </li>
+
+      <li class="book">
+        <img src="http://origin.syndetics.com/index.php?isbn=1250035600/LC.gif&amp;client=skopl&amp;type=hw7" class="left">
+
+      </li>
+
+      <li class="book">
+        <img src="http://origin.syndetics.com/index.php?isbn=0316370134/LC.gif&amp;client=skopl&amp;type=hw7" class="left">
+
+      </li>
+
+      <li class="book">
+        <img src="http://origin.syndetics.com/index.php?isbn=1442450002/LC.gif&amp;client=skopl&amp;type=hw7" class="left">
+
+      </li>
+
+    </ul>
+  </div>
+  <div class="list-container read-list-container">
+    <header>
+      <h2>Books I have read</h2>
+    </header>
+    <ul class="list read-list">
+      <li class="book">
+        <img src="http://origin.syndetics.com/index.php?isbn=0812995783/LC.gif&amp;client=skopl&amp;type=hw7" class="left">
+        <span class="badge">1</span>
+      </li>
+    </ul>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="bower_components/html.sortable/dist/html.sortable.min.js"></script>
+  <script>
+
+  $(function() {
+    $('.list').sortable({
+      connectWith: '.list',
+      forcePlaceholderSize: true,
+      placeholder: '<li class="placeholder"></li>'
+    }).bind('sortupdate', function(e, ui) {
+
+      if (ui.endparent.hasClass('book-list') == true ){
+        ui.item.find('.badge').remove();
+      }
+      else{
+        if (ui.startparent.hasClass('book-list')){
+          ui.item.append('<span class="badge"></span>');
+        }
+
+        var badges = $('.badge')
+        $.each(badges, function(i){
+          console.log(i)
+          $(this).html(i + 1)
+        });
+      }
+    });
+  });
+
+  </script>
+</body>
+</html>
